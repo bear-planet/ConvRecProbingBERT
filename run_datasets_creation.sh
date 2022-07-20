@@ -7,5 +7,5 @@ mkdir data/dialogue/movies
 
 cd data/
 sbatch create_dialogue_datasets.sbatch
-sbatch create_recommendation_datasets.sbatch
-sbatch create_search_datasets.sbatch
+# sbatch create_recommendation_datasets.sbatch
+# sbatch create_search_datasets.sbatch

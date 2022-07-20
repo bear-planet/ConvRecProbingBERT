@@ -37,3 +37,5 @@ do
     --bert_model 'bert-base-cased' 
     
 done
+
+python run_dialogue_baseline.py --task music --data_folder D:/ConvRecProbingBERT/data/dialogue/ --seed 42 --ranker bert --output_dir D:/ConvRecProbingBERT/data/output_data/bert4dialogue --early_stopping_steps 100000 --logging_steps 200000 --learning_rate 5e-6 --num_epochs 1 --bert_model bert-base-cased --batch_size 1

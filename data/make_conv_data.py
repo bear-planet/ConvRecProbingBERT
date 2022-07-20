@@ -7,17 +7,24 @@ import heapq
 from tqdm import tqdm
 import random
 
+
 negative_samples = 50
 random.seed(42)
 
 def generate_conv_data(in_path, subreddit):
     df_conv = pd.read_csv(in_path, lineterminator= "\n")
+    # df_conv = pd.read_csv(in_path)
+    # print(":::relevant_response:" , df_conv[df_conv['subreddit'] == 'musicsuggestions'].head() )
+    # print("::", subreddit)
     df_conv = df_conv[df_conv['subreddit'] == subreddit]
     df_conv['query'] = df_conv['query'].astype(str)
     df_conv['relevant_response'] = df_conv['relevant_response'].astype(str)
 
     documents = np.array(df_conv['relevant_response'])
     corpus = [context.split(" ") for context in documents]
+    # print(":::relevant_response:" , df_conv.head() )
+    # print(":::documents:" ,corpus)
+
     bm25 = BM25(corpus)
 
     cache = {}

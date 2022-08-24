@@ -223,5 +223,6 @@ class BERTRanker():
             nb_eval_steps += 1
             instance_predictions = softmax(logits.detach().cpu().numpy())
             preds.append(list(instance_predictions[:, 1]))
-
+        
+                
         return preds

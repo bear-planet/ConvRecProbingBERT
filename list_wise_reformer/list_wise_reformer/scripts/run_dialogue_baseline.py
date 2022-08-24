@@ -7,6 +7,7 @@ from list_wise_reformer.eval.evaluation import evaluate_models
 import pandas as pd
 import argparse
 import logging
+import torch
 
 from sacred import Experiment
 from sacred.observers import FileStorageObserver
@@ -107,12 +108,27 @@ def run_experiment(args):
 
     model_name = model.__class__.__name__
     logging.info("Evaluating {}".format(model_name))
+
+    # Create a list to store the metrics' result
+    metric_results=[]
+
     for metric in ['recip_rank', 'ndcg_cut_10']:
         res = 0
         for q in results[model_name]['eval'].keys():
             res += results[model_name]['eval'][q][metric]
         res /= len(results[model_name]['eval'].keys())
         logging.info("%s: %.4f" % (metric, res))
+        # Add the result to the list
+        metric_results.append("%s: %.4f" % (metric, res))
+    
+    # Save the metric result
+    f = open(args.output_dir+"/"+args.run_id+"/"+str(args.seed)+"_metric_results.txt", "w")
+    for line in metric_results:
+        f.write(line+'\n')
+    f.close()
+    
+    # Save the trained model
+    # torch.save(model, args.output_dir+"/"+args.run_id+"/"+str(args.task)+"_data_model.pth")
 
     return res
 

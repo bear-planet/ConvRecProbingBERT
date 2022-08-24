@@ -21,7 +21,7 @@ REPO_DIR=/tudelft.net/staff-umbrella/conversationalsearch/recsys2020penha
 # TASK=movies
 TASK=redial
 
-for SEED in 42 1 2 3 4
+for SEED in 1 2 3 4
 # for SEED in 42
 do
   srun python run_dialogue_baseline.py \
@@ -39,3 +39,10 @@ do
 done
 
 python run_dialogue_baseline.py --task music --data_folder D:/ConvRecProbingBERT/data/dialogue/ --seed 42 --ranker bert --output_dir D:/ConvRecProbingBERT/data/output_data/bert4dialogue --early_stopping_steps 100000 --logging_steps 200000 --learning_rate 5e-6 --num_epochs 1 --bert_model bert-base-cased --batch_size 1
+python run_dialogue_baseline.py --task music --data_folder C:/Users/eric8/Desktop/Yusha/ConvRecProbingBERT/data/dialogue/ --seed 42 --ranker bert --output_dir C:/Users/eric8/Desktop/Yusha/ConvRecProbingBERT/data/output_data/bert4dialogue --early_stopping_steps 100000 --logging_steps 200000 --learning_rate 5e-6 --num_epochs 1 --bert_model bert-base-cased
+
+########### Result #############
+# Seed = 42 | Task = Music
+# 2022-08-01 20:51:35,166 [INFO] Evaluating BERTRanker
+# 2022-08-01 20:51:35,166 [INFO] recip_rank: 0.4320
+# 2022-08-01 20:51:35,166 [INFO] ndcg_cut_10: 0.4826

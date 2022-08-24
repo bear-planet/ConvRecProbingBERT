@@ -33,6 +33,6 @@ srun python make_conv_data.py \
   --subreddit 'all'
 
 # mod
-python make_conv_data.py --conversations_path D:\ConvRecProbingBERT\data\dialogue\dialogues.csv --output_path ./dialogue/music --subreddit musicsuggestions
-python make_conv_data.py --conversations_path D:\ConvRecProbingBERT\data\dialogue\dialogues.csv --output_path ./dialogue/books --subreddit booksuggestions
-python make_conv_data.py --conversations_path D:\ConvRecProbingBERT\data\dialogue\dialogues.csv --output_path ./dialogue/movies --subreddit MovieSuggestions
+python make_conv_data.py --conversations_path ./dialogue/dialogues.csv --output_path ./dialogue/music --subreddit musicsuggestions
+python make_conv_data.py --conversations_path ./dialogue/dialogues.csv --output_path ./dialogue/books --subreddit booksuggestions
+python make_conv_data.py --conversations_path ./dialogue/dialogues.csv --output_path ./dialogue/movies --subreddit MovieSuggestions
